@@ -29,7 +29,7 @@
       </aside>
       <div class="form"><div class="form-inner">
         <button class="back" type="button" onclick="history.back()">→ بازگشت</button>
-        <div class="heading"><h2>کد تأیید را وارد کنید</h2><p>کد ۴ رقمی ارسال‌شده به شماره <span class="phone">+98 912 123 4567</span> را وارد کنید.</p></div>
+        <div class="heading"><h2>کد تأیید را وارد کنید</h2><p>کد ۴ رقمی ارسال‌شده به شماره <span class="phone" id="phoneDisplay">+98 912 123 4567</span> را وارد کنید.</p></div>
         <form onsubmit="verify(event)">
           <div class="code-row" dir="ltr">
             <input maxlength="1" inputmode="numeric" aria-label="رقم اول" autofocus>
@@ -49,6 +49,8 @@
   </main>
   <script>
     const digits = ['۰','۱','۲','۳','۴','۵','۶','۷','۸','۹'];
+    const savedPhone = localStorage.getItem('adab_phone');
+    if (savedPhone) document.getElementById('phoneDisplay').textContent = savedPhone;
     const inputs = [...document.querySelectorAll('.code-row input')];
     const countdown = document.getElementById('countdown');
     const resend = document.getElementById('resend');

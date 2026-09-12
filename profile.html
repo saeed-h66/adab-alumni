@@ -65,6 +65,11 @@
       </div>
     </main>
   </div>
-  <script>function submitProfile(event){event.preventDefault();localStorage.setItem('adab_profile_submitted','true');localStorage.setItem('adab_membership_status','pending');document.getElementById('message').textContent='اطلاعات شما برای بررسی مدیر ارسال شد.';setTimeout(()=>window.location.href='profile.html',500);}function loadStatus(){if(localStorage.getItem('adab_membership_status')==='approved'){document.getElementById('notice').innerHTML='<div class="notice-icon">✓</div><div><strong>عضویت شما تأیید شده است</strong>اکنون می‌توانید از خدمات انجمن استفاده کنید.</div>';document.querySelector('.locked').innerHTML='<div class="lock">✓</div><b>دسترسی شما فعال شده است</b><span>کارت دیجیتال، تخفیف‌ها، امتیازها و رویدادها برای شما فعال هستند.</span>';}}loadStatus();</script>
+  <script>
+    function loadProfile(){const first=localStorage.getItem('adab_first_name')||'';const last=localStorage.getItem('adab_last_name')||'';const phone=localStorage.getItem('adab_phone')||'';if(first)document.getElementById('first').value=first;if(last)document.getElementById('last').value=last;if(phone)document.getElementById('mobile').value=phone;const name=(first+' '+last).trim();if(name){document.querySelector('.topbar .user span').textContent=name;document.querySelector('.topbar .avatar').textContent=first.charAt(0);}}
+    function submitProfile(event){event.preventDefault();localStorage.setItem('adab_first_name',document.getElementById('first').value.trim());localStorage.setItem('adab_last_name',document.getElementById('last').value.trim());localStorage.setItem('adab_profile_submitted','true');localStorage.setItem('adab_membership_status','pending');document.getElementById('message').textContent='اطلاعات شما برای بررسی مدیر ارسال شد.';setTimeout(()=>window.location.href='profile.html',500);}
+    function loadStatus(){if(localStorage.getItem('adab_membership_status')==='approved'){document.getElementById('notice').innerHTML='<div class="notice-icon">✓</div><div><strong>عضویت شما تأیید شده است</strong>اکنون می‌توانید از خدمات انجمن استفاده کنید.</div>';document.querySelector('.locked').innerHTML='<div class="lock">✓</div><b>دسترسی شما فعال شده است</b><span>کارت دیجیتال، تخفیف‌ها، امتیازها و رویدادها برای شما فعال هستند.</span>';}}
+    loadProfile();loadStatus();
+  </script>
 </body>
 </html>

@@ -49,7 +49,7 @@
     </aside>
     <main class="main">
       <header class="topbar">
-        <div class="welcome"><h1>سلام، علی رضایی 👋</h1><p>به مسیر مشترک دانش‌آموختگان بعثت خوش آمدید.</p></div>
+        <div class="welcome"><h1 id="welcomeName">سلام، علی رضایی 👋</h1><p>به مسیر مشترک دانش‌آموختگان بعثت خوش آمدید.</p></div>
         <div class="top-actions"><button class="icon-button" aria-label="اعلان‌ها">♧<i class="dot"></i></button><div class="user"><span>عضو فعال</span><div class="avatar">ع</div></div></div>
       </header>
       <section class="grid">
@@ -68,5 +68,6 @@
       </section>
     </main>
   </div>
+  <script>const first=localStorage.getItem('adab_first_name')||'علی';const last=localStorage.getItem('adab_last_name')||'رضایی';const full=(first+' '+last).trim();document.getElementById('welcomeName').textContent='سلام، '+full+' 👋';document.querySelector('.top-actions .user .avatar').textContent=first.charAt(0);</script>
 </body>
 </html>
