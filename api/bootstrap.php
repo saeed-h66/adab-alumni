@@ -40,3 +40,23 @@ function normalize_mobile(string $mobile): string {
 function valid_mobile(string $mobile): bool {
     return (bool) preg_match('/^09\d{9}$/', $mobile);
 }
+
+function current_user(PDO $pdo): ?array {
+    $token = $_COOKIE['adab_session'] ?? '';
+    if (!preg_match('/^[a-f0-9]{64}$/', $token)) return null;
+    $stmt = $pdo->prepare('SELECT u.* FROM sessions s JOIN users u ON u.id = s.user_id WHERE s.id = ? AND s.expires_at > NOW() LIMIT 1');
+    $stmt->execute([$token]);
+    return $stmt->fetch() ?: null;
+}
+
+function require_user(PDO $pdo): array {
+    $user = current_user($pdo);
+    if (!$user) json_response(['ok' => false, 'message' => 'نیاز به ورود دارید.'], 401);
+    return $user;
+}
+
+function require_admin(PDO $pdo): array {
+    $user = require_user($pdo);
+    if ($user['role'] !== 'admin') json_response(['ok' => false, 'message' => 'دسترسی مدیر لازم است.'], 403);
+    return $user;
+}

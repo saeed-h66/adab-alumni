@@ -6,4 +6,11 @@
 4. مسیر `api/` را روی PHP 8.1+ قرار دهید.
 5. سرویس پیامک واقعی را در `auth/request-otp.php` متصل کنید.
 
+## مسیرهای تکمیل‌شده
+
+- `PUT /api/me/profile`
+- `GET /api/me/membership`
+- `GET /api/admin/members?status=pending`
+- `POST /api/admin/review.php?user_id=12`
+
 تا زمانی که این API روی هاست PHP اجرا نشود، GitHub Pages فقط نسخه نمایشی HTML را نمایش می‌دهد.
