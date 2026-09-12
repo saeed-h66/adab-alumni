@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>تأیید شماره موبایل | ادب</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap');
+    :root{--ink:#263238;--muted:#718087;--paper:#f4f8f9;--teal:#0099a7;--dark:#007987;--soft:#e8f6f7;--line:#dce7e9}
+    *{box-sizing:border-box}body{margin:0;min-height:100vh;color:var(--ink);font-family:"Vazirmatn",Tahoma,sans-serif;background:radial-gradient(circle at 10% 15%,rgba(0,153,167,.12),transparent 30%),radial-gradient(circle at 90% 85%,rgba(0,153,167,.08),transparent 32%),var(--paper)}
+    button,input{font:inherit}button{cursor:pointer}.shell{width:min(100% - 30px,1100px);min-height:100vh;margin:auto;display:grid;place-items:center;padding:35px 0}
+    .card{width:100%;min-height:620px;display:grid;grid-template-columns:.9fr 1.1fr;overflow:hidden;border:1px solid #fff;border-radius:30px;background:#fff;box-shadow:0 24px 70px rgba(41,86,93,.12)}
+    .visual{position:relative;overflow:hidden;padding:44px;color:#fff;background:linear-gradient(145deg,#007987,#0099a7)}.visual:before,.visual:after{content:"";position:absolute;border:1px solid rgba(255,255,255,.18);border-radius:50%}.visual:before{width:410px;height:410px;left:-195px;bottom:-175px}.visual:after{width:220px;height:220px;right:-100px;top:70px}
+    .brand{position:relative;z-index:1;display:flex;align-items:center;gap:11px}.logo{width:62px;height:62px;padding:5px;object-fit:contain;border-radius:16px;background:#fff}.brand b{display:block;font-size:19px}.brand small{display:block;margin-top:2px;color:#d8f7f8;font-size:11px}
+    .visual-copy{position:relative;z-index:1;margin-top:142px}.visual-copy h1{margin:0 0 15px;font-size:36px;line-height:1.45;letter-spacing:-1px}.visual-copy p{max-width:330px;margin:0;color:#d8f7f8;font-size:13px;line-height:2}
+    .form{display:flex;align-items:center;justify-content:center;padding:45px 30px}.form-inner{width:min(100%,385px)}.back{display:inline-flex;align-items:center;gap:7px;margin-bottom:46px;border:0;color:var(--teal);background:none;font-size:12px}.heading{margin-bottom:28px}.heading h2{margin:0 0 10px;font-size:27px}.heading p{margin:0;color:var(--muted);font-size:13px;line-height:2}.phone{display:inline-block;direction:ltr;color:var(--dark);font-weight:700}
+    .code-row{display:flex;direction:ltr;gap:10px;margin:25px 0 12px}.code-row input{width:100%;height:58px;border:1px solid var(--line);border-radius:13px;outline:0;color:var(--dark);background:#fff;text-align:center;font-size:23px;font-weight:700;transition:.2s}.code-row input:focus{border-color:var(--teal);box-shadow:0 0 0 4px rgba(0,153,167,.12)}
+    .timer{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;color:var(--muted);font-size:11px}.timer strong{color:var(--teal);font-size:12px}
+    .submit{width:100%;height:54px;border:0;border-radius:13px;color:#fff;background:var(--teal);box-shadow:0 10px 22px rgba(0,153,167,.2);font-weight:700;transition:.2s}.submit:hover{transform:translateY(-2px);background:var(--dark)}.resend{display:block;margin:21px auto 0;border:0;color:var(--teal);background:none;font-size:12px;font-weight:600}.resend:disabled{color:#aab9bb;cursor:not-allowed}.change{display:block;margin:30px auto 0;border:0;color:var(--muted);background:none;font-size:11px}.change:hover{color:var(--teal)}.message{min-height:20px;margin-top:13px;color:#c36548;font-size:11px;text-align:center}.secure{display:flex;align-items:center;justify-content:center;gap:7px;margin-top:38px;color:#9aa8aa;font-size:10px}.secure b{color:var(--teal);font-size:14px}
+    @media(max-width:700px){.shell{width:min(100% - 18px,500px);padding:10px 0}.card{display:block;min-height:auto;border-radius:23px}.visual{min-height:240px;padding:25px}.visual-copy{margin-top:48px}.visual-copy h1{font-size:29px}.visual-copy p{font-size:12px}.form{padding:31px 24px 35px}.back{margin-bottom:32px}.heading h2{font-size:24px}.secure{margin-top:28px}}
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <section class="card" aria-label="تأیید شماره موبایل">
+      <aside class="visual">
+        <div class="brand"><img class="logo" src="لوگو.svg" alt="لوگوی مجتمع آموزشی بعثت"><div><b>ادب</b><small>انجمن دانش‌آموختگان بعثت</small></div></div>
+        <div class="visual-copy"><h1>یک قدم تا<br>ورود به ادب.</h1><p>شماره موبایل شما فقط برای حفظ امنیت حساب و ارسال اطلاع‌رسانی‌های مهم استفاده می‌شود.</p></div>
+      </aside>
+      <div class="form"><div class="form-inner">
+        <button class="back" type="button" onclick="history.back()">→ بازگشت</button>
+        <div class="heading"><h2>کد تأیید را وارد کنید</h2><p>کد ۴ رقمی ارسال‌شده به شماره <span class="phone">+98 912 123 4567</span> را وارد کنید.</p></div>
+        <form onsubmit="verify(event)">
+          <div class="code-row" dir="ltr">
+            <input maxlength="1" inputmode="numeric" aria-label="رقم اول" autofocus>
+            <input maxlength="1" inputmode="numeric" aria-label="رقم دوم">
+            <input maxlength="1" inputmode="numeric" aria-label="رقم سوم">
+            <input maxlength="1" inputmode="numeric" aria-label="رقم چهارم">
+          </div>
+          <div class="timer"><span>کد را دریافت نکردید؟</span><strong id="countdown">۰۹۱ ثانیه</strong></div>
+          <button class="submit" type="submit">تأیید و ادامه</button>
+          <div class="message" id="message" aria-live="polite"></div>
+        </form>
+        <button class="resend" id="resend" type="button" disabled onclick="resendCode()">ارسال مجدد کد</button>
+        <button class="change" type="button" onclick="history.back()">تغییر شماره موبایل</button>
+        <div class="secure"><b>✓</b><span>اطلاعات شما با امنیت کامل محافظت می‌شود.</span></div>
+      </div></div>
+    </section>
+  </main>
+  <script>
+    const digits = ['۰','۱','۲','۳','۴','۵','۶','۷','۸','۹'];
+    const inputs = [...document.querySelectorAll('.code-row input')];
+    const countdown = document.getElementById('countdown');
+    const resend = document.getElementById('resend');
+    let seconds = 91;
+    function faNumber(n){return String(n).replace(/\d/g,d=>digits[d]);}
+    inputs.forEach((input,index)=>{
+      input.addEventListener('input',()=>{input.value=input.value.replace(/\D/g,'').slice(0,1);if(input.value&&inputs[index+1])inputs[index+1].focus();});
+      input.addEventListener('keydown',event=>{if(event.key==='Backspace'&&!input.value&&inputs[index-1])inputs[index-1].focus();});
+    });
+    const timer = setInterval(()=>{seconds--;countdown.textContent=faNumber(seconds).padStart(3,'۰')+' ثانیه';if(seconds<=0){clearInterval(timer);resend.disabled=false;countdown.textContent='آماده ارسال مجدد';}},1000);
+    function resendCode(){seconds=91;resend.disabled=true;document.getElementById('message').textContent='کد جدید ارسال شد.';}
+    function verify(event){event.preventDefault();const code=inputs.map(i=>i.value).join('');if(code.length!==4){document.getElementById('message').textContent='لطفاً کد ۴ رقمی را کامل وارد کنید.';return;}localStorage.setItem('adab_verified','true');document.getElementById('message').textContent='کد تأیید شد؛ در حال ورود...';setTimeout(()=>{window.location.href=localStorage.getItem('adab_auth_mode')==='signup'?'profile.html':'dashboard.html';},450);}
+  </script>
+</body>
+</html>

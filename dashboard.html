@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>داشبورد عضو | ادب</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap');
+    :root{--ink:#263238;--muted:#718087;--paper:#f4f8f9;--card:#fff;--teal:#0099a7;--dark:#007987;--soft:#e8f6f7;--line:#e0eaec;--orange:#ec9d42;--shadow:0 12px 35px rgba(34,88,96,.08)}
+    *{box-sizing:border-box} body{margin:0;color:var(--ink);background:var(--paper);font-family:"Vazirmatn",Tahoma,sans-serif}
+    button{font:inherit;cursor:pointer} a{text-decoration:none;color:inherit}
+    .app{min-height:100vh;display:grid;grid-template-columns:250px 1fr}
+    .sidebar{padding:28px 18px;background:#fff;border-left:1px solid var(--line)}
+    .brand{display:flex;align-items:center;gap:10px;padding:0 9px 30px;border-bottom:1px solid var(--line)}
+    .logo{width:47px;height:47px;padding:5px;object-fit:contain;border-radius:13px;background:#fff;box-shadow:0 4px 14px rgba(0,80,90,.1)}
+    .brand b{display:block;font-size:18px}.brand small{display:block;margin-top:2px;color:var(--muted);font-size:10px}
+    .nav{display:grid;gap:6px;margin-top:25px}.nav a{display:flex;align-items:center;gap:12px;padding:12px 13px;border-radius:12px;color:var(--muted);font-size:13px;transition:.2s}
+    .nav a:hover,.nav a.active{color:var(--dark);background:var(--soft);font-weight:700}.nav-icon{width:20px;text-align:center;font-size:18px}
+    .sidebar-bottom{position:fixed;bottom:23px;width:214px}.help{padding:16px;border-radius:16px;color:#fff;background:linear-gradient(145deg,var(--dark),var(--teal));font-size:12px;line-height:1.9}.help span{display:block;margin-top:8px;color:#c8f2f4;font-size:11px}
+    .main{min-width:0;padding:29px clamp(22px,4vw,55px)}
+    .topbar{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:27px}.welcome h1{margin:0;font-size:25px}.welcome p{margin:6px 0 0;color:var(--muted);font-size:13px}
+    .top-actions{display:flex;align-items:center;gap:14px}.icon-button{position:relative;width:40px;height:40px;border:1px solid var(--line);border-radius:12px;color:var(--muted);background:#fff;font-size:17px}.dot{position:absolute;top:8px;right:8px;width:6px;height:6px;border-radius:50%;background:#e67c4c}
+    .user{display:flex;align-items:center;gap:9px;padding-right:13px;border-right:1px solid var(--line);font-size:12px;font-weight:600}.avatar{width:37px;height:37px;display:grid;place-items:center;border-radius:50%;color:#fff;background:var(--teal);font-weight:700}
+    .grid{display:grid;grid-template-columns:1.4fr .9fr;gap:22px}.hero{position:relative;min-height:205px;overflow:hidden;padding:27px 29px;border-radius:20px;color:#fff;background:linear-gradient(120deg,#007987,#00a9b6);box-shadow:var(--shadow)}.hero:after{content:"";position:absolute;left:-55px;bottom:-110px;width:310px;height:310px;border:1px solid rgba(255,255,255,.18);border-radius:50%}.hero h2{position:relative;z-index:1;margin:0 0 11px;font-size:23px}.hero p{position:relative;z-index:1;max-width:430px;margin:0;color:#d8f7f8;font-size:13px;line-height:2}.hero-link{position:relative;z-index:1;display:inline-flex;margin-top:20px;padding:9px 14px;border:1px solid rgba(255,255,255,.35);border-radius:10px;color:#fff;font-size:11px}
+    .score-card{padding:25px;border:1px solid var(--line);border-radius:20px;background:#fff;box-shadow:var(--shadow)}.card-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}.card-title h3{margin:0;font-size:15px}.card-title a{color:var(--teal);font-size:11px}
+    .score{display:flex;align-items:center;gap:18px}.ring{width:84px;height:84px;display:grid;place-items:center;flex:0 0 auto;border-radius:50%;background:conic-gradient(var(--teal) 0 68%,#e9f0f1 68% 100%);position:relative}.ring:after{content:"";position:absolute;width:65px;height:65px;border-radius:50%;background:#fff}.ring strong{position:relative;z-index:1;font-size:18px;color:var(--dark)}.score-text b{display:block;font-size:19px}.score-text span{display:block;margin-top:4px;color:var(--muted);font-size:11px}.progress{height:6px;margin-top:20px;overflow:hidden;border-radius:5px;background:#edf2f2}.progress i{display:block;width:68%;height:100%;border-radius:5px;background:var(--teal)}.next{display:flex;justify-content:space-between;margin-top:8px;color:var(--muted);font-size:10px}
+    .section{margin-top:30px}.section-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}.section-head h3{margin:0;font-size:16px}.section-head a{color:var(--teal);font-size:11px}
+    .shortcuts{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}.shortcut{padding:18px 15px;border:1px solid var(--line);border-radius:16px;background:#fff;box-shadow:var(--shadow);transition:.2s}.shortcut:hover{transform:translateY(-3px);border-color:#b8e2e5}.shortcut-icon{width:39px;height:39px;display:grid;place-items:center;margin-bottom:13px;border-radius:12px;color:var(--teal);background:var(--soft);font-size:19px}.shortcut b{display:block;font-size:12px}.shortcut span{display:block;margin-top:5px;color:var(--muted);font-size:10px;line-height:1.7}
+    .lower{display:grid;grid-template-columns:1.15fr .85fr;gap:22px}.offers,.events{padding:21px;border:1px solid var(--line);border-radius:18px;background:#fff;box-shadow:var(--shadow)}.offer{display:flex;align-items:center;gap:13px;padding:13px 0;border-bottom:1px solid #eef2f2}.offer:last-child{border:0;padding-bottom:0}.offer-img{width:48px;height:48px;display:grid;place-items:center;border-radius:12px;color:var(--teal);background:#eaf6f4;font-size:21px}.offer b{display:block;font-size:12px}.offer span{display:block;margin-top:5px;color:var(--muted);font-size:10px}.discount{margin-right:auto;padding:5px 8px;border-radius:7px;color:#b66b17;background:#fff2df;font-size:10px;font-weight:700}
+    .event{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid #eef2f2}.event:last-child{border:0}.date{width:42px;height:45px;display:grid;place-items:center;flex:0 0 auto;border-radius:10px;color:var(--teal);background:var(--soft);font-size:11px;font-weight:700}.event b{display:block;font-size:12px}.event span{display:block;margin-top:5px;color:var(--muted);font-size:10px}
+    @media(max-width:900px){.app{grid-template-columns:76px 1fr}.sidebar{padding:20px 12px}.brand{justify-content:center;padding:0 0 25px}.brand div:not(.logo){display:none}.nav a{justify-content:center;padding:12px 0}.nav a span:not(.nav-icon){display:none}.sidebar-bottom{display:none}.grid,.lower{grid-template-columns:1fr}.shortcuts{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:560px){.app{display:block}.sidebar{display:none}.main{padding:20px 15px}.topbar{align-items:flex-start}.welcome h1{font-size:20px}.user{display:none}.hero{padding:23px;min-height:215px}.shortcuts{gap:9px}.shortcut{padding:14px 12px}.lower{gap:13px}}
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand"><img class="logo" src="لوگو.svg" alt="لوگوی مجتمع آموزشی بعثت"><div><b>ادب</b><small>انجمن دانش‌آموختگان بعثت</small></div></div>
+      <nav class="nav" aria-label="منوی اصلی">
+        <a class="active" href="#"><span class="nav-icon">⌂</span><span>داشبورد</span></a>
+        <a href="#"><span class="nav-icon">▣</span><span>کارت عضویت</span></a>
+        <a href="#"><span class="nav-icon">◎</span><span>هم‌دوره‌ای‌ها</span></a>
+        <a href="#"><span class="nav-icon">✦</span><span>امتیاز و مزایا</span></a>
+        <a href="#"><span class="nav-icon">⌁</span><span>تخفیف‌ها</span></a>
+        <a href="#"><span class="nav-icon">◷</span><span>رویدادها</span></a>
+        <a href="#"><span class="nav-icon">▤</span><span>اخبار ادب</span></a>
+      </nav>
+      <div class="sidebar-bottom"><div class="help">پشتیبانی ادب<span>سؤالی دارید؟ همراه شما هستیم ←</span></div></div>
+    </aside>
+    <main class="main">
+      <header class="topbar">
+        <div class="welcome"><h1>سلام، علی رضایی 👋</h1><p>به مسیر مشترک دانش‌آموختگان بعثت خوش آمدید.</p></div>
+        <div class="top-actions"><button class="icon-button" aria-label="اعلان‌ها">♧<i class="dot"></i></button><div class="user"><span>عضو فعال</span><div class="avatar">ع</div></div></div>
+      </header>
+      <section class="grid">
+        <div class="hero"><h2>هر ارتباط، یک فرصت تازه است.</h2><p>از آخرین رویدادها باخبر شوید، هم‌دوره‌ای‌های خود را پیدا کنید و از مزایای ویژه عضویت در ادب استفاده کنید.</p><a class="hero-link" href="#">تکمیل پروفایل ←</a></div>
+        <div class="score-card"><div class="card-title"><h3>سطح و امتیاز شما</h3><a href="#">جزئیات</a></div><div class="score"><div class="ring"><strong>۶۸٪</strong></div><div class="score-text"><b>عضو برنزی</b><span>۶۸۰ امتیاز از ۱۰۰۰</span></div></div><div class="progress"><i></i></div><div class="next"><span>برنزی</span><span>۳۲۰ امتیاز تا نقره‌ای</span></div></div>
+      </section>
+      <section class="section"><div class="section-head"><h3>دسترسی سریع</h3><a href="#">مشاهده همه</a></div><div class="shortcuts">
+        <a class="shortcut" href="#"><div class="shortcut-icon">▣</div><b>کارت عضویت دیجیتال</b><span>نمایش QR و اطلاعات عضویت</span></a>
+        <a class="shortcut" href="#"><div class="shortcut-icon">◎</div><b>هم‌دوره‌ای‌های من</b><span>جست‌وجو و ارتباط با اعضا</span></a>
+        <a class="shortcut" href="#"><div class="shortcut-icon">⌁</div><b>تخفیف‌های ویژه</b><span>پیشنهادهای نزدیک به شما</span></a>
+        <a class="shortcut" href="#"><div class="shortcut-icon">◷</div><b>رویدادهای پیش‌رو</b><span>ثبت‌نام در برنامه‌های ادب</span></a>
+      </div></section>
+      <section class="section lower">
+        <div class="offers"><div class="section-head"><h3>پیشنهادهای ویژه اعضا</h3><a href="#">همه تخفیف‌ها</a></div><div class="offer"><div class="offer-img">✎</div><div><b>آکادمی آموزش بعثت</b><span>دوره‌های مهارتی و آموزشی</span></div><em class="discount">۱۵٪ تخفیف</em></div><div class="offer"><div class="offer-img">♧</div><div><b>انجمن ورزشی همراه</b><span>ویژه اعضای ادب در مشهد</span></div><em class="discount">۲۰٪ تخفیف</em></div><div class="offer"><div class="offer-img">◈</div><div><b>فروشگاه فرهنگی</b><span>کتاب و محصولات فرهنگی</span></div><em class="discount">۱۰٪ تخفیف</em></div></div>
+        <div class="events"><div class="section-head"><h3>رویدادهای پیش‌رو</h3><a href="#">تقویم ادب</a></div><div class="event"><div class="date">۲۵<br>خرداد</div><div><b>دورهمی نسل‌های ادب</b><span>مدرسه بعثت · ساعت ۱۷:۰۰</span></div></div><div class="event"><div class="date">۳۱<br>خرداد</div><div><b>نشست تجربه و کارآفرینی</b><span>آنلاین · ساعت ۱۹:۳۰</span></div></div></div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

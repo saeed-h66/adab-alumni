@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تکمیل پروفایل | ادب</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap');
+    :root{--ink:#263238;--muted:#718087;--paper:#f4f8f9;--teal:#0099a7;--dark:#007987;--soft:#e8f6f7;--line:#dce7e9;--warn:#ba7b24;--warn-bg:#fff5e5;--shadow:0 15px 40px rgba(41,86,93,.09)}
+    *{box-sizing:border-box}body{margin:0;min-height:100vh;color:var(--ink);font-family:"Vazirmatn",Tahoma,sans-serif;background:radial-gradient(circle at 8% 12%,rgba(0,153,167,.1),transparent 30%),var(--paper)}
+    button,input,select{font:inherit}button{cursor:pointer}.app{min-height:100vh;display:grid;grid-template-columns:245px 1fr}.sidebar{padding:27px 17px;background:#fff;border-left:1px solid var(--line)}
+    .brand{display:flex;align-items:center;gap:10px;padding:0 9px 27px;border-bottom:1px solid var(--line)}.logo{width:48px;height:48px;padding:5px;object-fit:contain;border-radius:13px;box-shadow:0 4px 14px rgba(0,80,90,.1)}.brand b{display:block;font-size:18px}.brand small{display:block;margin-top:2px;color:var(--muted);font-size:10px}
+    .nav{display:grid;gap:6px;margin-top:24px}.nav a{display:flex;align-items:center;gap:12px;padding:12px 13px;border-radius:12px;color:var(--muted);font-size:13px}.nav a.active{color:var(--dark);background:var(--soft);font-weight:700}.nav-icon{width:20px;text-align:center;font-size:17px}
+    .main{min-width:0;padding:29px clamp(22px,4vw,55px)}.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:26px}.topbar h1{margin:0;font-size:25px}.topbar p{margin:6px 0 0;color:var(--muted);font-size:13px}.user{display:flex;align-items:center;gap:9px;color:var(--muted);font-size:12px}.avatar{width:38px;height:38px;display:grid;place-items:center;border-radius:50%;color:#fff;background:var(--teal);font-weight:700}
+    .notice{display:flex;gap:13px;align-items:flex-start;margin-bottom:21px;padding:16px 18px;border:1px solid #f0d9ae;border-radius:16px;color:#805716;background:var(--warn-bg);font-size:12px;line-height:1.9}.notice strong{display:block;margin-bottom:2px;font-size:13px}.notice-icon{font-size:21px}
+    .layout{display:grid;grid-template-columns:1fr 300px;gap:22px}.panel{padding:25px;border:1px solid var(--line);border-radius:19px;background:#fff;box-shadow:var(--shadow)}.panel h2{margin:0 0 6px;font-size:17px}.panel-sub{margin:0 0 24px;color:var(--muted);font-size:12px;line-height:1.9}
+    .progress{height:8px;margin:0 0 25px;overflow:hidden;border-radius:6px;background:#edf2f2}.progress i{display:block;width:58%;height:100%;border-radius:6px;background:var(--teal)}.progress-label{display:flex;justify-content:space-between;margin-top:-18px;margin-bottom:24px;color:var(--muted);font-size:10px}.progress-label b{color:var(--teal)}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:17px}.field.full{grid-column:1/-1}.field label{display:block;margin-bottom:7px;font-size:12px;font-weight:600}.field input,.field select{width:100%;height:48px;padding:0 13px;border:1px solid var(--line);border-radius:11px;outline:0;color:var(--ink);background:#fff;font-size:13px}.field input:focus,.field select:focus{border-color:var(--teal);box-shadow:0 0 0 4px rgba(0,153,167,.1)}.field input[dir=ltr]{text-align:right}
+    .upload{display:flex;align-items:center;gap:14px;padding:13px;border:1px dashed #a8d6da;border-radius:12px;background:#f6fcfc}.upload-icon{width:39px;height:39px;display:grid;place-items:center;border-radius:10px;color:var(--teal);background:var(--soft);font-size:19px}.upload b{display:block;font-size:12px}.upload span{display:block;margin-top:4px;color:var(--muted);font-size:10px}
+    .actions{display:flex;align-items:center;justify-content:flex-start;gap:14px;margin-top:26px;padding-top:20px;border-top:1px solid #eef2f2}.primary{height:49px;padding:0 24px;border:0;border-radius:11px;color:#fff;background:var(--teal);box-shadow:0 8px 18px rgba(0,153,167,.2);font-size:12px;font-weight:700}.primary:hover{background:var(--dark)}.secondary{height:49px;padding:0 20px;border:1px solid var(--line);border-radius:11px;color:var(--muted);background:#fff;font-size:12px}
+    .side-card{padding:20px;border:1px solid var(--line);border-radius:18px;background:#fff;box-shadow:var(--shadow)}.side-card h3{margin:0 0 17px;font-size:14px}.status{display:flex;align-items:center;gap:10px;padding:12px;border-radius:12px;color:var(--warn);background:var(--warn-bg);font-size:11px;font-weight:600}.status-dot{width:9px;height:9px;border-radius:50%;background:#e7a33d}.steps{display:grid;gap:18px;margin-top:23px}.step{display:flex;gap:11px;align-items:flex-start;color:var(--muted);font-size:11px;line-height:1.8}.step-icon{width:23px;height:23px;display:grid;place-items:center;flex:0 0 auto;border-radius:50%;color:#fff;background:#b9c9cb;font-size:11px}.step.done{color:var(--dark)}.step.done .step-icon{background:var(--teal)}.step.current{color:var(--ink);font-weight:600}.step.current .step-icon{color:var(--teal);background:var(--soft);border:1px solid #a8d6da}
+    .locked{margin-top:22px;padding:18px;border-radius:15px;color:#66777b;background:#f5f8f8;text-align:center}.lock{font-size:25px;color:#9aaeb1}.locked b{display:block;margin:8px 0 5px;font-size:12px}.locked span{display:block;font-size:10px;line-height:1.8}.message{min-height:20px;margin-top:13px;color:var(--teal);font-size:11px}
+    @media(max-width:900px){.app{grid-template-columns:76px 1fr}.sidebar{padding:20px 12px}.brand{justify-content:center;padding:0 0 25px}.brand div:not(.logo){display:none}.nav a{justify-content:center;padding:12px 0}.nav a span:not(.nav-icon){display:none}.layout{grid-template-columns:1fr}}
+    @media(max-width:560px){.app{display:block}.sidebar{display:none}.main{padding:20px 15px}.topbar h1{font-size:20px}.user span{display:none}.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.panel{padding:19px}.actions{flex-direction:column;align-items:stretch}.primary,.secondary{width:100%}}
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand"><img class="logo" src="لوگو.svg" alt="لوگوی مجتمع آموزشی بعثت"><div><b>ادب</b><small>انجمن دانش‌آموختگان بعثت</small></div></div>
+      <nav class="nav" aria-label="منوی اصلی">
+        <a href="dashboard.html"><span class="nav-icon">⌂</span><span>داشبورد</span></a>
+        <a class="active" href="#"><span class="nav-icon">♙</span><span>تکمیل پروفایل</span></a>
+        <a href="#"><span class="nav-icon">▣</span><span>کارت عضویت</span></a>
+        <a href="#"><span class="nav-icon">◎</span><span>هم‌دوره‌ای‌ها</span></a>
+        <a href="#"><span class="nav-icon">✦</span><span>امتیاز و مزایا</span></a>
+      </nav>
+    </aside>
+    <main class="main">
+      <header class="topbar"><div><h1>تکمیل پروفایل</h1><p>اطلاعات شما پس از بررسی مدیر، برای فعال‌سازی عضویت استفاده می‌شود.</p></div><div class="user"><span>علی رضایی</span><div class="avatar">ع</div></div></header>
+      <div class="notice" id="notice"><div class="notice-icon">⏳</div><div><strong>حساب شما در انتظار تأیید مدیر است</strong>برای استفاده از خدمات انجمن، اطلاعات زیر را کامل و برای بررسی ارسال کنید.</div></div>
+      <div class="layout">
+        <section class="panel">
+          <h2>اطلاعات دانش‌آموخته</h2><p class="panel-sub">لطفاً اطلاعات را دقیق و مطابق سوابق تحصیلی خود وارد کنید.</p>
+          <div class="progress"><i></i></div><div class="progress-label"><span>تکمیل اطلاعات</span><b>۵۸٪</b></div>
+          <form onsubmit="submitProfile(event)">
+            <div class="form-grid">
+              <div class="field"><label for="first">نام</label><input id="first" value="علی" required></div>
+              <div class="field"><label for="last">نام خانوادگی</label><input id="last" value="رضایی" required></div>
+              <div class="field"><label for="mobile">شماره موبایل</label><input id="mobile" value="0912 123 4567" dir="ltr" readonly></div>
+              <div class="field"><label for="national">کد ملی</label><input id="national" inputmode="numeric" placeholder="مثلاً ۰۰۱۲۳۴۵۶۷۸" required></div>
+              <div class="field"><label for="degree">مقطع تحصیلی</label><select id="degree" required><option value="">انتخاب کنید</option><option>متوسطه اول</option><option>متوسطه دوم</option><option>دیپلم</option></select></div>
+              <div class="field"><label for="branch">شعبه / محل تحصیل</label><select id="branch" required><option value="">انتخاب کنید</option><option>مجتمع آموزشی بعثت</option><option>شعبه مرکزی</option><option>شعبه دیگر</option></select></div>
+              <div class="field"><label for="enter">سال ورود</label><input id="enter" inputmode="numeric" placeholder="مثلاً ۱۳۹۰" required></div>
+              <div class="field"><label for="graduate">سال فارغ‌التحصیلی</label><input id="graduate" inputmode="numeric" placeholder="مثلاً ۱۳۹۶" required></div>
+              <div class="field full"><label>تصویر پروفایل</label><div class="upload"><div class="upload-icon">＋</div><div><b>بارگذاری تصویر</b><span>فرمت JPG یا PNG · حداکثر ۲ مگابایت</span></div></div></div>
+            </div>
+            <div class="actions"><button class="primary" type="submit">ارسال برای بررسی مدیر</button><button class="secondary" type="button">ذخیره موقت</button></div><div class="message" id="message" aria-live="polite"></div>
+          </form>
+        </section>
+        <aside>
+          <div class="side-card"><h3>وضعیت عضویت</h3><div class="status"><i class="status-dot"></i>در انتظار بررسی مدیر</div><div class="steps"><div class="step done"><i class="step-icon">✓</i><span>ثبت‌نام اولیه انجام شد</span></div><div class="step current"><i class="step-icon">۲</i><span>تکمیل اطلاعات و احراز هویت</span></div><div class="step"><i class="step-icon">۳</i><span>بررسی و تأیید توسط مدیر</span></div><div class="step"><i class="step-icon">۴</i><span>فعال‌شدن دسترسی خدمات</span></div></div></div>
+          <div class="locked"><div class="lock">🔒</div><b>خدمات انجمن پس از تأیید فعال می‌شوند</b><span>کارت دیجیتال، تخفیف‌ها، امتیازها و رویدادها بعد از تأیید در دسترس شما قرار می‌گیرند.</span></div>
+        </aside>
+      </div>
+    </main>
+  </div>
+  <script>function submitProfile(event){event.preventDefault();localStorage.setItem('adab_profile_submitted','true');localStorage.setItem('adab_membership_status','pending');document.getElementById('message').textContent='اطلاعات شما برای بررسی مدیر ارسال شد.';setTimeout(()=>window.location.href='profile.html',500);}function loadStatus(){if(localStorage.getItem('adab_membership_status')==='approved'){document.getElementById('notice').innerHTML='<div class="notice-icon">✓</div><div><strong>عضویت شما تأیید شده است</strong>اکنون می‌توانید از خدمات انجمن استفاده کنید.</div>';document.querySelector('.locked').innerHTML='<div class="lock">✓</div><b>دسترسی شما فعال شده است</b><span>کارت دیجیتال، تخفیف‌ها، امتیازها و رویدادها برای شما فعال هستند.</span>';}}loadStatus();</script>
+</body>
+</html>
